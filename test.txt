@@ -1,0 +1,402 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.9.22, pytest-7.1.3, pluggy-1.0.0 -- /Users/aleksandrnazimov/Documents/Dev/cat_charity_fund/venv/bin/python
+rootdir: /Users/aleksandrnazimov/Documents/Dev/cat_charity_fund, configfile: pytest.ini, testpaths: tests/
+plugins: Faker-12.0.1, anyio-3.6.1, freezegun-0.4.2, asyncio-0.23.4, pythonpath-0.7.3, lazy-fixture-0.6.3
+asyncio: mode=auto
+collecting ... collected 80 items
+
+tests/test_auth.py::test_register PASSED                                 [  1%]
+tests/test_auth.py::test_register_invalid_pass PASSED                    [  2%]
+tests/test_charity_project.py::test_create_invalid_project_name[empty] PASSED [  3%]
+tests/test_charity_project.py::test_create_invalid_project_name[too_long] PASSED [  5%]
+tests/test_charity_project.py::test_create_invalid_project_name[None] PASSED [  6%]
+tests/test_charity_project.py::test_create_project_no_desc[] PASSED      [  7%]
+tests/test_charity_project.py::test_create_project_no_desc[None] PASSED  [  8%]
+tests/test_charity_project.py::test_create_project_with_autofilling_fields[json_data0] PASSED [ 10%]
+tests/test_charity_project.py::test_create_project_with_autofilling_fields[json_data1] PASSED [ 11%]
+tests/test_charity_project.py::test_create_project_with_autofilling_fields[json_data2] PASSED [ 12%]
+tests/test_charity_project.py::test_create_invalid_full_amount_value[-100] PASSED [ 13%]
+tests/test_charity_project.py::test_create_invalid_full_amount_value[0.5] PASSED [ 15%]
+tests/test_charity_project.py::test_create_invalid_full_amount_value[test] PASSED [ 16%]
+tests/test_charity_project.py::test_create_invalid_full_amount_value[0.0] PASSED [ 17%]
+tests/test_charity_project.py::test_create_invalid_full_amount_value[] PASSED [ 18%]
+tests/test_charity_project.py::test_create_invalid_full_amount_value[None] PASSED [ 20%]
+tests/test_charity_project.py::test_get_charity_project PASSED           [ 21%]
+tests/test_charity_project.py::test_get_all_charity_project PASSED       [ 22%]
+tests/test_charity_project.py::test_create_charity_project PASSED        [ 23%]
+tests/test_charity_project.py::test_create_charity_project_validation_error[json_data0] PASSED [ 25%]
+tests/test_charity_project.py::test_create_charity_project_validation_error[json_data1] PASSED [ 26%]
+tests/test_charity_project.py::test_create_charity_project_validation_error[json_data2] PASSED [ 27%]
+tests/test_charity_project.py::test_create_charity_project_validation_error[json_data3] PASSED [ 28%]
+tests/test_charity_project.py::test_create_charity_project_validation_error[json_data4] PASSED [ 30%]
+tests/test_charity_project.py::test_create_charity_project_validation_error[json_data5] PASSED [ 31%]
+tests/test_charity_project.py::test_delete_project_usual_user PASSED     [ 32%]
+tests/test_charity_project.py::test_delete_charity_project PASSED        [ 33%]
+tests/test_charity_project.py::test_delete_charity_project_invalid_id PASSED [ 35%]
+tests/test_charity_project.py::test_update_charity_project[json_data0-expected_data0] PASSED [ 36%]
+tests/test_charity_project.py::test_update_charity_project[json_data1-expected_data1] PASSED [ 37%]
+tests/test_charity_project.py::test_update_charity_project[json_data2-expected_data2] PASSED [ 38%]
+tests/test_charity_project.py::test_update_charity_project_full_amount_equal_invested_amount[json_data0] PASSED [ 40%]
+tests/test_charity_project.py::test_update_charity_project_full_amount_equal_invested_amount[json_data1] PASSED [ 41%]
+tests/test_charity_project.py::test_update_charity_project_invalid[json_data0] PASSED [ 42%]
+tests/test_charity_project.py::test_update_charity_project_invalid[json_data1] PASSED [ 43%]
+tests/test_charity_project.py::test_update_charity_project_invalid[json_data2] PASSED [ 45%]
+tests/test_charity_project.py::test_update_charity_with_unexpected_fields[json_data0] PASSED [ 46%]
+tests/test_charity_project.py::test_update_charity_with_unexpected_fields[json_data1] PASSED [ 47%]
+tests/test_charity_project.py::test_update_charity_with_unexpected_fields[json_data2] PASSED [ 48%]
+tests/test_charity_project.py::test_update_charity_with_unexpected_fields[json_data3] PASSED [ 50%]
+tests/test_charity_project.py::test_update_charity_project_same_name PASSED [ 51%]
+tests/test_charity_project.py::test_update_charity_project_full_amount_smaller_already_invested[0] PASSED [ 52%]
+tests/test_charity_project.py::test_update_charity_project_full_amount_smaller_already_invested[5] PASSED [ 53%]
+tests/test_charity_project.py::test_create_charity_project_usual_user PASSED [ 55%]
+tests/test_charity_project.py::test_patch_charity_project_usual_user PASSED [ 56%]
+tests/test_charity_project.py::test_patch_charity_project_fully_invested PASSED [ 57%]
+tests/test_charity_project.py::test_create_charity_project_same_name PASSED [ 58%]
+tests/test_charity_project.py::test_create_charity_project_diff_time PASSED [ 60%]
+tests/test_charity_project.py::test_donation_exist_project_create PASSED [ 61%]
+tests/test_charity_project.py::test_delete_charity_project_already_invested FAILED [ 62%]
+tests/test_charity_project.py::test_delete_charity_project_already_closed FAILED [ 63%]
+tests/test_charity_project.py::test_get_all_charity_project_not_auth_user PASSED [ 65%]
+tests/test_db.py::test_check_migration_file_exist PASSED                 [ 66%]
+tests/test_db.py::test_check_db_url PASSED                               [ 67%]
+tests/test_donations.py::test_create_donation[json_data0-expected_keys0-expected_data0] PASSED [ 68%]
+tests/test_donations.py::test_create_donation[json_data1-expected_keys1-expected_data1] PASSED [ 70%]
+tests/test_donations.py::test_create_donation_incorrect[json_data0] PASSED [ 71%]
+tests/test_donations.py::test_create_donation_incorrect[json_data1] PASSED [ 72%]
+tests/test_donations.py::test_create_donation_incorrect[json_data2] PASSED [ 73%]
+tests/test_donations.py::test_create_donation_incorrect[json_data3] PASSED [ 75%]
+tests/test_donations.py::test_create_donation_incorrect[json_data4] PASSED [ 76%]
+tests/test_donations.py::test_create_donation_incorrect[json_data5] PASSED [ 77%]
+tests/test_donations.py::test_create_donation_incorrect[json_data6] PASSED [ 78%]
+tests/test_donations.py::test_get_user_donation PASSED                   [ 80%]
+tests/test_donations.py::test_get_all_donations PASSED                   [ 81%]
+tests/test_donations.py::test_donation_invalid[json_data0] PASSED        [ 82%]
+tests/test_donations.py::test_donation_invalid[json_data1] PASSED        [ 83%]
+tests/test_donations.py::test_donation_invalid[json_data2] PASSED        [ 85%]
+tests/test_donations.py::test_donation_invalid[json_data3] PASSED        [ 86%]
+tests/test_donations.py::test_donations_cant_be_updated[superuser] PASSED [ 87%]
+tests/test_donations.py::test_donations_cant_be_updated[user] PASSED     [ 88%]
+tests/test_donations.py::test_donations_cant_be_updated[anonymous] PASSED [ 90%]
+tests/test_donations.py::test_donations_cant_be_deleted[superuser] PASSED [ 91%]
+tests/test_donations.py::test_donations_cant_be_deleted[user] PASSED     [ 92%]
+tests/test_donations.py::test_donations_cant_be_deleted[anonymous] PASSED [ 93%]
+tests/test_donations.py::test_create_donation_check_create_date PASSED   [ 95%]
+tests/test_investment.py::test_donation_exist_non_project PASSED         [ 96%]
+tests/test_investment.py::test_project_exist_non_donations PASSED        [ 97%]
+tests/test_investment.py::test_fully_invested_amount_for_two_projects PASSED [ 98%]
+tests/test_investment.py::test_donation_to_little_invest_project PASSED  [100%]
+
+=================================== FAILURES ===================================
+_________________ test_delete_charity_project_already_invested _________________
+
+superuser_client = <starlette.testclient.TestClient object at 0x106f32e50>
+charity_project_little_invested = <app.models.charity_project.CharityProject object at 0x106fc7df0>
+
+    def test_delete_charity_project_already_invested(
+            superuser_client, charity_project_little_invested):
+>       response = superuser_client.delete(
+            PROJECT_DETAILS_URL.format(
+                project_id=charity_project_little_invested.id)
+        )
+
+tests/test_charity_project.py:663: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+venv/lib/python3.9/site-packages/requests/sessions.py:611: in delete
+    return self.request('DELETE', url, **kwargs)
+venv/lib/python3.9/site-packages/starlette/testclient.py:476: in request
+    return super().request(
+venv/lib/python3.9/site-packages/requests/sessions.py:529: in request
+    resp = self.send(prep, **send_kwargs)
+venv/lib/python3.9/site-packages/requests/sessions.py:645: in send
+    r = adapter.send(request, **kwargs)
+venv/lib/python3.9/site-packages/starlette/testclient.py:270: in send
+    raise exc
+venv/lib/python3.9/site-packages/starlette/testclient.py:267: in send
+    portal.call(self.app, scope, receive, send)
+venv/lib/python3.9/site-packages/anyio/from_thread.py:283: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+../../../.pyenv/versions/3.9.22/lib/python3.9/concurrent/futures/_base.py:446: in result
+    return self.__get_result()
+../../../.pyenv/versions/3.9.22/lib/python3.9/concurrent/futures/_base.py:391: in __get_result
+    raise self._exception
+venv/lib/python3.9/site-packages/anyio/from_thread.py:219: in _call_func
+    retval = await retval
+venv/lib/python3.9/site-packages/fastapi/applications.py:269: in __call__
+    await super().__call__(scope, receive, send)
+venv/lib/python3.9/site-packages/starlette/applications.py:124: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv/lib/python3.9/site-packages/starlette/middleware/errors.py:184: in __call__
+    raise exc
+venv/lib/python3.9/site-packages/starlette/middleware/errors.py:162: in __call__
+    await self.app(scope, receive, _send)
+venv/lib/python3.9/site-packages/starlette/exceptions.py:93: in __call__
+    raise exc
+venv/lib/python3.9/site-packages/starlette/exceptions.py:82: in __call__
+    await self.app(scope, receive, sender)
+venv/lib/python3.9/site-packages/fastapi/middleware/asyncexitstack.py:21: in __call__
+    raise e
+venv/lib/python3.9/site-packages/fastapi/middleware/asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv/lib/python3.9/site-packages/starlette/routing.py:670: in __call__
+    await route.handle(scope, receive, send)
+venv/lib/python3.9/site-packages/starlette/routing.py:266: in handle
+    await self.app(scope, receive, send)
+venv/lib/python3.9/site-packages/starlette/routing.py:65: in app
+    response = await func(request)
+venv/lib/python3.9/site-packages/fastapi/routing.py:235: in app
+    response_data = await serialize_response(
+venv/lib/python3.9/site-packages/fastapi/routing.py:128: in serialize_response
+    value, errors_ = field.validate(response_content, {}, loc=("response",))
+pydantic/fields.py:857: in pydantic.fields.ModelField.validate
+    ???
+pydantic/fields.py:1074: in pydantic.fields.ModelField._validate_singleton
+    ???
+pydantic/fields.py:1121: in pydantic.fields.ModelField._apply_validators
+    ???
+pydantic/class_validators.py:313: in pydantic.class_validators._generic_validator_basic.lambda12
+    ???
+pydantic/main.py:688: in pydantic.main.BaseModel.validate
+    ???
+pydantic/main.py:572: in pydantic.main.BaseModel.from_orm
+    ???
+pydantic/main.py:1017: in pydantic.main.validate_model
+    ???
+pydantic/utils.py:411: in pydantic.utils.GetterDict.get
+    ???
+venv/lib/python3.9/site-packages/sqlalchemy/orm/attributes.py:481: in __get__
+    return self.impl.get(state, dict_)
+venv/lib/python3.9/site-packages/sqlalchemy/orm/attributes.py:941: in get
+    value = self._fire_loader_callables(state, key, passive)
+venv/lib/python3.9/site-packages/sqlalchemy/orm/attributes.py:972: in _fire_loader_callables
+    return state._load_expired(state, passive)
+venv/lib/python3.9/site-packages/sqlalchemy/orm/state.py:710: in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+venv/lib/python3.9/site-packages/sqlalchemy/orm/loading.py:1451: in load_scalar_attributes
+    result = load_on_ident(
+venv/lib/python3.9/site-packages/sqlalchemy/orm/loading.py:407: in load_on_ident
+    return load_on_pk_identity(
+venv/lib/python3.9/site-packages/sqlalchemy/orm/loading.py:530: in load_on_pk_identity
+    session.execute(
+venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py:1695: in execute
+    conn = self._connection_for_bind(bind)
+venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py:1536: in _connection_for_bind
+    return self._transaction._connection_for_bind(
+venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py:747: in _connection_for_bind
+    conn = bind.connect()
+venv/lib/python3.9/site-packages/sqlalchemy/future/engine.py:406: in connect
+    return super(Engine, self).connect()
+venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py:3234: in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py:96: in __init__
+    else engine.raw_connection()
+venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py:3313: in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py:3280: in _wrap_pool_connect
+    return fn()
+venv/lib/python3.9/site-packages/sqlalchemy/pool/base.py:310: in connect
+    return _ConnectionFairy._checkout(self)
+venv/lib/python3.9/site-packages/sqlalchemy/pool/base.py:868: in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+venv/lib/python3.9/site-packages/sqlalchemy/pool/base.py:476: in checkout
+    rec = pool._do_get()
+venv/lib/python3.9/site-packages/sqlalchemy/pool/impl.py:256: in _do_get
+    return self._create_connection()
+venv/lib/python3.9/site-packages/sqlalchemy/pool/base.py:256: in _create_connection
+    return _ConnectionRecord(self)
+venv/lib/python3.9/site-packages/sqlalchemy/pool/base.py:371: in __init__
+    self.__connect()
+venv/lib/python3.9/site-packages/sqlalchemy/pool/base.py:666: in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+venv/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py:70: in __exit__
+    compat.raise_(
+venv/lib/python3.9/site-packages/sqlalchemy/util/compat.py:207: in raise_
+    raise exception
+venv/lib/python3.9/site-packages/sqlalchemy/pool/base.py:661: in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+venv/lib/python3.9/site-packages/sqlalchemy/engine/create.py:590: in connect
+    return dialect.connect(*cargs, **cparams)
+venv/lib/python3.9/site-packages/sqlalchemy/engine/default.py:597: in connect
+    return self.dbapi.connect(*cargs, **cparams)
+venv/lib/python3.9/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py:292: in connect
+    await_only(connection),
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+awaitable = <Connection(Thread-128, initial daemon)>
+
+    def await_only(awaitable: Coroutine) -> Any:
+        """Awaits an async function in a sync method.
+    
+        The sync method must be inside a :func:`greenlet_spawn` context.
+        :func:`await_only` calls cannot be nested.
+    
+        :param awaitable: The coroutine to call.
+    
+        """
+        # this is called in the context greenlet while running fn
+        current = greenlet.getcurrent()
+        if not isinstance(current, _AsyncIoGreenlet):
+>           raise exc.MissingGreenlet(
+                "greenlet_spawn has not been called; can't call await_only() "
+                "here. Was IO attempted in an unexpected place?"
+            )
+E           sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/14/xd2s)
+
+venv/lib/python3.9/site-packages/sqlalchemy/util/_concurrency_py3k.py:59: MissingGreenlet
+__________________ test_delete_charity_project_already_closed __________________
+
+superuser_client = <starlette.testclient.TestClient object at 0x10be2a4c0>
+closed_charity_project = <app.models.charity_project.CharityProject object at 0x10be4ed30>
+
+    def test_delete_charity_project_already_closed(superuser_client,
+                                                   closed_charity_project):
+>       response = superuser_client.delete(
+            PROJECT_DETAILS_URL.format(project_id=closed_charity_project.id)
+        )
+
+tests/test_charity_project.py:683: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+venv/lib/python3.9/site-packages/requests/sessions.py:611: in delete
+    return self.request('DELETE', url, **kwargs)
+venv/lib/python3.9/site-packages/starlette/testclient.py:476: in request
+    return super().request(
+venv/lib/python3.9/site-packages/requests/sessions.py:529: in request
+    resp = self.send(prep, **send_kwargs)
+venv/lib/python3.9/site-packages/requests/sessions.py:645: in send
+    r = adapter.send(request, **kwargs)
+venv/lib/python3.9/site-packages/starlette/testclient.py:270: in send
+    raise exc
+venv/lib/python3.9/site-packages/starlette/testclient.py:267: in send
+    portal.call(self.app, scope, receive, send)
+venv/lib/python3.9/site-packages/anyio/from_thread.py:283: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+../../../.pyenv/versions/3.9.22/lib/python3.9/concurrent/futures/_base.py:446: in result
+    return self.__get_result()
+../../../.pyenv/versions/3.9.22/lib/python3.9/concurrent/futures/_base.py:391: in __get_result
+    raise self._exception
+venv/lib/python3.9/site-packages/anyio/from_thread.py:219: in _call_func
+    retval = await retval
+venv/lib/python3.9/site-packages/fastapi/applications.py:269: in __call__
+    await super().__call__(scope, receive, send)
+venv/lib/python3.9/site-packages/starlette/applications.py:124: in __call__
+    await self.middleware_stack(scope, receive, send)
+venv/lib/python3.9/site-packages/starlette/middleware/errors.py:184: in __call__
+    raise exc
+venv/lib/python3.9/site-packages/starlette/middleware/errors.py:162: in __call__
+    await self.app(scope, receive, _send)
+venv/lib/python3.9/site-packages/starlette/exceptions.py:93: in __call__
+    raise exc
+venv/lib/python3.9/site-packages/starlette/exceptions.py:82: in __call__
+    await self.app(scope, receive, sender)
+venv/lib/python3.9/site-packages/fastapi/middleware/asyncexitstack.py:21: in __call__
+    raise e
+venv/lib/python3.9/site-packages/fastapi/middleware/asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+venv/lib/python3.9/site-packages/starlette/routing.py:670: in __call__
+    await route.handle(scope, receive, send)
+venv/lib/python3.9/site-packages/starlette/routing.py:266: in handle
+    await self.app(scope, receive, send)
+venv/lib/python3.9/site-packages/starlette/routing.py:65: in app
+    response = await func(request)
+venv/lib/python3.9/site-packages/fastapi/routing.py:235: in app
+    response_data = await serialize_response(
+venv/lib/python3.9/site-packages/fastapi/routing.py:128: in serialize_response
+    value, errors_ = field.validate(response_content, {}, loc=("response",))
+pydantic/fields.py:857: in pydantic.fields.ModelField.validate
+    ???
+pydantic/fields.py:1074: in pydantic.fields.ModelField._validate_singleton
+    ???
+pydantic/fields.py:1121: in pydantic.fields.ModelField._apply_validators
+    ???
+pydantic/class_validators.py:313: in pydantic.class_validators._generic_validator_basic.lambda12
+    ???
+pydantic/main.py:688: in pydantic.main.BaseModel.validate
+    ???
+pydantic/main.py:572: in pydantic.main.BaseModel.from_orm
+    ???
+pydantic/main.py:1017: in pydantic.main.validate_model
+    ???
+pydantic/utils.py:411: in pydantic.utils.GetterDict.get
+    ???
+venv/lib/python3.9/site-packages/sqlalchemy/orm/attributes.py:481: in __get__
+    return self.impl.get(state, dict_)
+venv/lib/python3.9/site-packages/sqlalchemy/orm/attributes.py:941: in get
+    value = self._fire_loader_callables(state, key, passive)
+venv/lib/python3.9/site-packages/sqlalchemy/orm/attributes.py:972: in _fire_loader_callables
+    return state._load_expired(state, passive)
+venv/lib/python3.9/site-packages/sqlalchemy/orm/state.py:710: in _load_expired
+    self.manager.expired_attribute_loader(self, toload, passive)
+venv/lib/python3.9/site-packages/sqlalchemy/orm/loading.py:1451: in load_scalar_attributes
+    result = load_on_ident(
+venv/lib/python3.9/site-packages/sqlalchemy/orm/loading.py:407: in load_on_ident
+    return load_on_pk_identity(
+venv/lib/python3.9/site-packages/sqlalchemy/orm/loading.py:530: in load_on_pk_identity
+    session.execute(
+venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py:1695: in execute
+    conn = self._connection_for_bind(bind)
+venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py:1536: in _connection_for_bind
+    return self._transaction._connection_for_bind(
+venv/lib/python3.9/site-packages/sqlalchemy/orm/session.py:747: in _connection_for_bind
+    conn = bind.connect()
+venv/lib/python3.9/site-packages/sqlalchemy/future/engine.py:406: in connect
+    return super(Engine, self).connect()
+venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py:3234: in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py:96: in __init__
+    else engine.raw_connection()
+venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py:3313: in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+venv/lib/python3.9/site-packages/sqlalchemy/engine/base.py:3280: in _wrap_pool_connect
+    return fn()
+venv/lib/python3.9/site-packages/sqlalchemy/pool/base.py:310: in connect
+    return _ConnectionFairy._checkout(self)
+venv/lib/python3.9/site-packages/sqlalchemy/pool/base.py:868: in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+venv/lib/python3.9/site-packages/sqlalchemy/pool/base.py:476: in checkout
+    rec = pool._do_get()
+venv/lib/python3.9/site-packages/sqlalchemy/pool/impl.py:256: in _do_get
+    return self._create_connection()
+venv/lib/python3.9/site-packages/sqlalchemy/pool/base.py:256: in _create_connection
+    return _ConnectionRecord(self)
+venv/lib/python3.9/site-packages/sqlalchemy/pool/base.py:371: in __init__
+    self.__connect()
+venv/lib/python3.9/site-packages/sqlalchemy/pool/base.py:666: in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+venv/lib/python3.9/site-packages/sqlalchemy/util/langhelpers.py:70: in __exit__
+    compat.raise_(
+venv/lib/python3.9/site-packages/sqlalchemy/util/compat.py:207: in raise_
+    raise exception
+venv/lib/python3.9/site-packages/sqlalchemy/pool/base.py:661: in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+venv/lib/python3.9/site-packages/sqlalchemy/engine/create.py:590: in connect
+    return dialect.connect(*cargs, **cparams)
+venv/lib/python3.9/site-packages/sqlalchemy/engine/default.py:597: in connect
+    return self.dbapi.connect(*cargs, **cparams)
+venv/lib/python3.9/site-packages/sqlalchemy/dialects/sqlite/aiosqlite.py:292: in connect
+    await_only(connection),
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+awaitable = <Connection(Thread-132, initial daemon)>
+
+    def await_only(awaitable: Coroutine) -> Any:
+        """Awaits an async function in a sync method.
+    
+        The sync method must be inside a :func:`greenlet_spawn` context.
+        :func:`await_only` calls cannot be nested.
+    
+        :param awaitable: The coroutine to call.
+    
+        """
+        # this is called in the context greenlet while running fn
+        current = greenlet.getcurrent()
+        if not isinstance(current, _AsyncIoGreenlet):
+>           raise exc.MissingGreenlet(
+                "greenlet_spawn has not been called; can't call await_only() "
+                "here. Was IO attempted in an unexpected place?"
+            )
+E           sqlalchemy.exc.MissingGreenlet: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/14/xd2s)
+
+venv/lib/python3.9/site-packages/sqlalchemy/util/_concurrency_py3k.py:59: MissingGreenlet
+=========================== short test summary info ============================
+FAILED tests/test_charity_project.py::test_delete_charity_project_already_invested
+FAILED tests/test_charity_project.py::test_delete_charity_project_already_closed
+================== 2 failed, 78 passed, 237 warnings in 2.10s ==================
