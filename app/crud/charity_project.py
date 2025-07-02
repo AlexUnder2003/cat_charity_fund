@@ -17,11 +17,9 @@ class CharityProjectCRUD(CRUDBase):
 
     async def get_open_projects(self, session: AsyncSession):
         result = await session.execute(
-<<<<<<< HEAD
-            select(self.model).where(self.model.fully_invested is False)
-=======
-            select(self.model).where(self.model.fully_invested == False)
->>>>>>> 0f8cca6 (Update investments logic and improve code readbility)
+            select(self.model).where(
+                self.model.fully_invested == False  # noqa
+            )
         )
         return result.scalars().all()
 
