@@ -50,7 +50,11 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
         user: Union[User, UserCreate],
     ) -> None:
         if len(password) < USER_PASSWORD_LEN:
+<<<<<<< HEAD
             error = f"Пароль должен быть не менее {USER_PASSWORD_LEN} символов"
+=======
+            error = f"Пароль должен содержать не менее {USER_PASSWORD_LEN} символов"
+>>>>>>> 0f8cca6 (Update investments logic and improve code readbility)
             raise InvalidPasswordException(reason=error)
         if user.email in password:
             error = "Пароль не может содержать ваш email"
