@@ -19,6 +19,7 @@ from app.core.config import settings
 from app.core.db import get_async_session
 from app.models.user import User
 from app.schemas.user import UserCreate
+from app.core.constants import USER_PASSWORD_LEN
 
 
 async def get_user_db(
@@ -48,8 +49,8 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
         password: str,
         user: Union[User, UserCreate],
     ) -> None:
-        if len(password) < 3:
-            error = "Пароль должен содержать не менее 3 символов"
+        if len(password) < USER_PASSWORD_LEN:
+            error = f"Пароль должен содержать не менее {USER_PASSWORD_LEN} символов"
             raise InvalidPasswordException(reason=error)
         if user.email in password:
             error = "Пароль не может содержать ваш email"

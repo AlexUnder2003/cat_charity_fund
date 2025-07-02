@@ -15,6 +15,12 @@ class CharityProjectCRUD(CRUDBase):
         )
         return result.scalars().first()
 
+    async def get_open_projects(self, session: AsyncSession):
+        result = await session.execute(
+            select(self.model).where(self.model.fully_invested == False)
+        )
+        return result.scalars().all()
+
     async def remove(
         self,
         db_obj,

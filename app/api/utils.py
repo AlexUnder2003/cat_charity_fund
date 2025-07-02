@@ -1,45 +1,44 @@
 from datetime import datetime, timezone
-
-from sqlalchemy import select
-from sqlalchemy.ext.asyncio import AsyncSession
-
-from app.models import CharityProject, Donation
+from typing import List, Tuple
 
 
-async def invest_donations_into_projects(session: AsyncSession):
-    projects_result = await session.execute(
-        select(CharityProject)
-        .where(CharityProject.fully_invested == 0)
-        .order_by(CharityProject.create_date)
-    )
-    donations_result = await session.execute(
-        select(Donation)
-        .where(Donation.fully_invested == 0)
-        .order_by(Donation.create_date)
-    )
-
-    projects = projects_result.scalars().all()
-    donations = donations_result.scalars().all()
-
+def invest_donations_into_projects(
+    target,
+    sources: List,
+) -> Tuple[List, List]:
+    """
+    Функция распределяет инвестиции между целевым объектом и источниками.
+    """
     now = datetime.now(timezone.utc)
 
-    for project in projects:
-        project_left = project.full_amount - project.invested_amount
+    target_left = target.full_amount - target.invested_amount
 
-        for donation in donations:
-            donation_left = donation.full_amount - donation.invested_amount
+    updated_sources = []
 
-            invest_amount = min(project_left, donation_left)
+    for source in sources:
+        if target_left <= 0:
+            break
 
-            project.invested_amount += invest_amount
-            donation.invested_amount += invest_amount
+        source_left = source.full_amount - source.invested_amount
 
-            if project.invested_amount == project.full_amount:
-                project.fully_invested = True
-                project.close_date = now
+        if source_left <= 0:
+            continue
 
-            if donation.invested_amount == donation.full_amount:
-                donation.fully_invested = True
-                donation.close_date = now
+        invest_amount = min(target_left, source_left)
 
-    session.add_all(projects + donations)
+        target.invested_amount += invest_amount
+        source.invested_amount += invest_amount
+
+        target_left -= invest_amount
+
+        if target.invested_amount == target.full_amount:
+            target.fully_invested = True
+            target.close_date = now
+
+        if source.invested_amount == source.full_amount:
+            source.fully_invested = True
+            source.close_date = now
+
+        updated_sources.append(source)
+
+    return target, updated_sources

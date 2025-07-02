@@ -6,6 +6,11 @@ from app.models.donation import Donation
 
 
 class CRUDDonation(CRUDBase):
+    async def get_open_donations(self, session: AsyncSession):
+        result = await session.execute(
+            select(self.model).where(self.model.fully_invested == False)
+        )
+        return result.scalars().all()
 
     async def get_user_donations(
         self,
